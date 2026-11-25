@@ -26,9 +26,28 @@ title: Jonathan Sutton
 </section>
 
 <hr class="my-10">
-
-<div class="publication-list">
-    <h2 class="text-2xl font-bold mb-6 border-b pb-2">My Publications</h2>
+<div class="publication-list mx-auto p-4 sm:p-8">
+    <h2 class="text-3xl font-extrabold text-gray-800 mb-10 text-center border-b-4 border-indigo-500 pb-3">
+        My Research Publications
+    </h2>
+    
+    <!-- 
+        =========================================================
+        *** THE RESPONSIVE GRID CONTAINER ***
+        =========================================================
+        
+        - grid: Activates CSS Grid.
+        - gap-8: Sets space between columns/rows.
+        - grid-cols-2: Default for narrow screens (2 columns).
+        - lg:grid-cols-3: On large screens, switch to 3 columns.
+        - max-w-screen-xl: Prevents the content from stretching edge-to-edge 
+          on huge monitors, keeping it centered.
+        - mx-auto: Centers the grid container horizontally.
+    -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-xl mx-auto">
+        
+<!-- <div class="publication-list">
+    <h2 class="text-2xl font-bold mb-6 border-b pb-2">My Publications</h2> -->
     
     {% for publication in site.publications limit: 6 %}
     <div class="publication-card bg-white p-6 rounded-lg shadow-lg mb-8 transition hover:shadow-xl">
