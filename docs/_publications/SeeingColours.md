@@ -1,6 +1,6 @@
 ---
 layout: publication
-title: Seeing Colours: Addressing Colour Vision Deficiency with Vision Augmentations using Computational Glasses
+title: "Seeing Colours: Addressing Colour Vision Deficiency with Vision Augmentations using Computational Glasses"
 date: 2022-01-14
 authors: ["Jonathan Sutton", "Tobias Langlotz", "Alexander Plopski"]
 doi: https://doi.org/10.1145/3486899
