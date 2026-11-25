@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Publications</title>
+    
+    <link rel="stylesheet" href="/assets/tailwind.min.css">
+    <link rel="stylesheet" href="/assets/overrides.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Main Container Wrapper -->
+    <div class="max-w-5xl mx-auto p-6 sm:p-12">
+        
+        <!-- HEADER & IMAGE SECTION -->
+        <header class="bg-white shadow-xl rounded-lg p-8 mb-10 border-t-4 border-indigo-600">
+            
+            <!-- IMAGE SPACE -->
+            <div class="mb-8 max-w-xs mx-auto">
+                {% if page.image_url %}
+                    <img src="{{ page.image_url }}" 
+                         alt="{{ page.title }} visual representation" 
+                         class="w-full h-auto object-cover rounded-lg shadow-md">
+                {% else %}
+                    <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 border-2 border-dashed border-gray-300">
+                        No Image Provided
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 text-center mb-4">
+                {{ page.title }}
+            </h1>
+            
+            <!-- Metadata (Authors, Date, DOI) -->
+            <div class="text-center text-lg text-gray-600 mt-6 space-y-2">
+                <!-- Authors -->
+                <p>
+                    <strong>Authors:</strong> 
+                    {% if page.authors %}
+                        {{ page.authors | join: ', ' }}
+                    {% else %}
+                        (Author details not provided)
+                    {% endif %}
+                </p>
+                
+                <!-- Date -->
+                <p><strong>Date:</strong> {{ page.date | date: "%B %Y" }}</p>
+                
+                <!-- DOI -->
+                {% if page.doi %}
+                    <p>
+                        <strong>DOI:</strong> <a href="https://doi.org/{{ page.doi }}" target="_blank" class="text-indigo-600 hover:underline">{{ page.doi }}</a>
+                    </p>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT: ABSTRACT AND ACTION BUTTONS -->
+        <main class="bg-white p-8 shadow-xl rounded-lg">
+            
+            <!-- ABSTRACT -->
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b pb-2">Abstract</h2>
+                <p class="text-xl text-gray-700 leading-relaxed">{{ page.abstract }}</p>
+            </div>
+
+            <!-- PDF DOWNLOAD SECTION -->
+            <div class="border-t pt-8 mt-8 text-center">
+                {% if page.pdf_url %}
+                    <a href="{{ page.pdf_url }}" 
+                       target="_blank" 
+                       class="inline-flex items-center px-10 py-4 border border-transparent text-lg font-semibold rounded-md shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.01]">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7M12 5v12"></path></svg>
+                        Download Full Paper (PDF)
+                    </a>
+                {% else %}
+                    <p class="text-gray-500 italic">PDF link is not provided for this publication.</p>
+                {% endif %}
+            </div>
+        </main>
+        
+    </div>
+</body>
+</html>
