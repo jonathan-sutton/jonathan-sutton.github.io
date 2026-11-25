@@ -30,7 +30,6 @@ github_username:  jonathan-sutton
 
 include:
     - _pages
-    - _publications
 
 # Build settings
 theme: minima

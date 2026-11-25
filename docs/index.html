@@ -26,7 +26,17 @@ title: Home
 </section>
 
 <hr class="my-10">
-        
+        <h1>--- Collection Test ---</h1>
+{% if site.publications.size > 0 %}
+    <p>SUCCESS! Jekyll found {{ site.publications.size }} publications.</p>
+    
+    <!-- Now, inside this successful block, try your original loop -->
+    {% for publication in site.publications limit: 3 %}
+        <p>Testing Title: {{ publication.title }}</p>
+    {% endfor %}
+{% else %}
+    <p style="color: red;">ERROR! site.publications is empty. Check your _config.yml or file naming.</p>
+{% endif %}
 <div class="publication-list">
     <h2 class="text-2xl font-bold mb-6 border-b pb-2">Select Publications</h2> 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-xl mx-auto">
