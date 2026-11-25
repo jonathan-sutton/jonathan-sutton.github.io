@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Jonathan Sutton
+title: Home
 ---
 
 <header class="bg-cover bg-center py-32 text-center" style="background-image: url('https://via.placeholder.com/1200x600');">
@@ -26,63 +26,46 @@ title: Jonathan Sutton
 </section>
 
 <hr class="my-10">
-<div class="publication-list mx-auto p-4 sm:p-8">
-    <h2 class="text-3xl font-extrabold text-gray-800 mb-10 text-center border-b-4 border-indigo-500 pb-3">
-        My Research Publications
-    </h2>
-    
-    <!-- 
-        =========================================================
-        *** THE RESPONSIVE GRID CONTAINER ***
-        =========================================================
         
-        - grid: Activates CSS Grid.
-        - gap-8: Sets space between columns/rows.
-        - grid-cols-2: Default for narrow screens (2 columns).
-        - lg:grid-cols-3: On large screens, switch to 3 columns.
-        - max-w-screen-xl: Prevents the content from stretching edge-to-edge 
-          on huge monitors, keeping it centered.
-        - mx-auto: Centers the grid container horizontally.
-    -->
+<div class="publication-list">
+    <h2 class="text-2xl font-bold mb-6 border-b pb-2">Select Publications</h2> 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-xl mx-auto">
-        
-<!-- <div class="publication-list">
-    <h2 class="text-2xl font-bold mb-6 border-b pb-2">My Publications</h2> -->
-    
-    {% for publication in site.publications limit: 6 %}
-    <div class="publication-card bg-white p-6 rounded-lg shadow-lg mb-8 transition hover:shadow-xl">
-        
-        <!-- Paper Title and Link -->
-        <h3 class="text-xl font-semibold mb-2">
-            <a href="{{ publication.url | relative_url }}" class="hover:text-indigo-600 transition duration-150">
-                {{ publication.title }}
-            </a>
-        </h3>
-        
-        <!-- Metadata (Authors, Year, DOI) -->
-        <p class="text-sm text-gray-600 mb-3">
-            Authored by: {{ publication.authors | join: ', ' }} | Published: {{ publication.date | date: "%Y" }}
-        </p>
-        
-        <!-- Abstract/Summary -->
-        <p class="mb-4 italic text-gray-700">
-            "{{ publication.abstract }}"
-        </p>
-        
-        <!-- Call to Action: Read More / View PDF -->
-        <div class="flex justify-between items-center mt-4">
-            <a href="{{ publication.url | relative_url }}" class="text-indigo-600 hover:underline font-medium">
-                Read Abstract &rarr;
-            </a>
-            {% if publication.pdf_url %}
-                <a href="{{ publication.pdf_url | relative_url }}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
-                    View PDF
-                </a>
-            {% endif %}
-        </div>
 
+        {% for publication in site.publications limit: 6 %}
+        <div class="publication-card bg-white p-6 rounded-lg shadow-lg mb-8 transition hover:shadow-xl">
+            
+            <!-- Paper Title and Link -->
+            <h3 class="text-xl font-semibold mb-2">
+                <a href="{{ publication.url | relative_url }}" class="hover:text-indigo-600 transition duration-150">
+                    {{ publication.title }}
+                </a>
+            </h3>
+            
+            <!-- Metadata (Authors, Year, DOI) -->
+            <p class="text-sm text-gray-600 mb-3">
+                Authored by: {{ publication.authors | join: ', ' }} | Published: {{ publication.date | date: "%Y" }}
+            </p>
+            
+            <!-- Abstract/Summary -->
+            <p class="mb-4 italic text-gray-700">
+                "{{ publication.abstract }}"
+            </p>
+            
+            <!-- Call to Action: Read More / View PDF -->
+            <div class="flex justify-between items-center mt-4">
+                <a href="{{ publication.url | relative_url }}" class="text-indigo-600 hover:underline font-medium">
+                    Read Abstract &rarr;
+                </a>
+                {% if publication.pdf_url %}
+                    <a href="{{ publication.pdf_url | relative_url }}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+                        View PDF
+                    </a>
+                {% endif %}
+            </div>
+
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 <section id="publications" class="container mx-auto py-16">
