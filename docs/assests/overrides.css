@@ -1,0 +1,5 @@
+.wrapper {
+    max-width: 1200px !important; /* Set a new, wider ceiling */
+    padding-left: 30px; /* You can reset the padding here if you want */
+    padding-right: 30px;
+}
