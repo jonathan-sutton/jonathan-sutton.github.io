@@ -5,9 +5,9 @@ title: Jonathan Sutton
 
 <header class="bg-cover bg-center py-32 text-center" style="background-image: url('https://via.placeholder.com/1200x600');">
     <div class="container mx-auto">
-        <h1 class="text-6xl font-bold text-white">Dr. Jane Doe</h1>
-        <h2 class="text-2xl font-semibold text-white mt-4">Assistant Professor</h2>
-        <p class="mt-4 text-white">Department of Computer Science, University of Example</p>
+        <h1 class="text-6xl font-bold text-white">Dr. Jonathan Sutton</h1>
+        <h2 class="text-2xl font-semibold text-white mt-4">Postdoc</h2>
+        <p class="mt-4 text-white">Department of Computer Science, Aarhus University</p>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     </div>
 </header>
@@ -15,13 +15,60 @@ title: Jonathan Sutton
 <section id="about" class="container mx-auto py-16">
     <div class="text-center">
         <h2 class="text-3xl font-bold mb-8">About Me</h2>
-        <p class="max-w-3xl mx-auto">Dr. Jane Doe is an Assistant Professor in the Department of Computer Science at the University of Example. Her research focuses on artificial intelligence, machine learning, and data science. She has published extensively in top-tier conferences and journals.</p>
+        <p class="max-w-3xl mx-auto">
+            Jonathan Sutton is a Postdoctoral Researcher in the Department of Computer Science at Aarhus University. 
+            His research focuses on augmented reality, visual perception, and computational eyewear, 
+            exploring how optical see-through head-mounted displays can augment human vision and guide visual attention. 
+            He holds a PhD from the University of Otago and publishes regularly in 
+            leading human-computer interaction venues such as ACM CHI and TOCHI.
+        </p>
     </div>
 </section>
 
+<hr class="my-10">
+
+<div class="publication-list">
+    <h2 class="text-2xl font-bold mb-6 border-b pb-2">My Publications</h2>
+    
+    {% for publication in site.publications limit: 6 %}
+    <div class="publication-card bg-white p-6 rounded-lg shadow-lg mb-8 transition hover:shadow-xl">
+        
+        <!-- Paper Title and Link -->
+        <h3 class="text-xl font-semibold mb-2">
+            <a href="{{ publication.url | relative_url }}" class="hover:text-indigo-600 transition duration-150">
+                {{ publication.title }}
+            </a>
+        </h3>
+        
+        <!-- Metadata (Authors, Year, DOI) -->
+        <p class="text-sm text-gray-600 mb-3">
+            Authored by: {{ publication.authors | join: ', ' }} | Published: {{ publication.date | date: "%Y" }}
+        </p>
+        
+        <!-- Abstract/Summary -->
+        <p class="mb-4 italic text-gray-700">
+            "{{ publication.abstract }}"
+        </p>
+        
+        <!-- Call to Action: Read More / View PDF -->
+        <div class="flex justify-between items-center mt-4">
+            <a href="{{ publication.url | relative_url }}" class="text-indigo-600 hover:underline font-medium">
+                Read Abstract &rarr;
+            </a>
+            {% if publication.pdf_url %}
+                <a href="{{ publication.pdf_url | relative_url }}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+                    View PDF
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
 <section id="publications" class="container mx-auto py-16">
     <div class="text-center">
-        <h2 class="text-3xl font-bold mb-8">Publications</h2>
+        <h2 class="text-3xl font-bold mb-8">Select Publications</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
@@ -42,7 +89,7 @@ title: Jonathan Sutton
     </div>
 </section>
 
-<section id="projects" class="container mx-auto py-16">
+<!-- <section id="projects" class="container mx-auto py-16">
     <div class="text-center">
         <h2 class="text-3xl font-bold mb-8">Projects</h2>
     </div>
@@ -57,18 +104,18 @@ title: Jonathan Sutton
             <p class="mb-2">Description of the project and its objectives.</p>
             <a href="https://github.com/janedoe/project" class="text-blue-500 hover:text-blue-700">GitHub Repository</a>
         </div>
-        <!-- Add more projects as needed -->
+        Add more projects as needed
     </div>
-</section>
+</section> -->
 
 <section id="contact" class="container mx-auto py-16">
     <div class="text-center">
         <h2 class="text-3xl font-bold mb-8">Contact Me</h2>
         <p class="max-w-3xl mx-auto">For any inquiries or collaboration opportunities, please feel free to contact me:</p>
         <div class="mt-4">
-            <a href="mailto:jane.doe@example.com" class="text-blue-500 hover:text-blue-700">Email: jane.doe@example.com</a>
-            <p class="mt-2">Office: Building A, Room 101</p>
-            <p class="mt-2">Phone: +1-123-456-7890</p>
+            <a href="mailto:jonathan.sutton@cs.au.dk" class="text-blue-500 hover:text-blue-700">Email: jonathan.sutton@cs.au.dk</a>
+            <!-- <p class="mt-2">Office: Building A, Room 101</p>
+            <p class="mt-2">Phone: +1-123-456-7890</p> -->
         </div>
     </div>
 </section>
